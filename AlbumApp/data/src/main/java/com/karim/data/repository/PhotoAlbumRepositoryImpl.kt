@@ -8,16 +8,24 @@ import io.reactivex.Observable
 
 class PhotoAlbumRepositoryImpl constructor(
     private val photoAlbumMapper : Mapper<PhotoAlbumEntity, PhotoAlbumData>,
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource
 ) : PhotoAlbumsRepository {
     override fun getPhotoAlbumsData(): Observable<List<PhotoAlbumEntity>> {
 
-        return remoteDataSource.getPhotoAlbumsData()
+        val localPhotos = localDataSource.getPhotos()
             .map { photos ->
-                //localDataSource.savePhotos(photos)
-                //println("photos" +photos.toString())
                 photos.map { photoAlbumMapper.from(it) }
             }
+
+        return remoteDataSource.getPhotoAlbumsData()
+            .map { photos ->
+                localDataSource.clearPhotoData()
+                localDataSource.savePhotos(photos)
+                photos.map { photoAlbumMapper.from(it) }
+            }
+            //.onErrorResumeNext(Observable.empty())
+            .concatWith(localPhotos)
     }
 
 

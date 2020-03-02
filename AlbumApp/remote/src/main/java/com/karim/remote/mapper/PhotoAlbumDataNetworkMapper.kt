@@ -3,7 +3,7 @@ package com.karim.remote.mapper
 import com.karim.data.models.PhotoAlbumData
 import com.karim.remote.model.PhotoAlbumNetwork
 
-class PhotoAlbumDataNetworkMapper constructor(): Mapper<PhotoAlbumData, PhotoAlbumNetwork> {
+class PhotoAlbumDataNetworkMapper : Mapper<PhotoAlbumData, PhotoAlbumNetwork> {
     override fun from(e: PhotoAlbumNetwork): PhotoAlbumData {
         return PhotoAlbumData(
             id = e.id,

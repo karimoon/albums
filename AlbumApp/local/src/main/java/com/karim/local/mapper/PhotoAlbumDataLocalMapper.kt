@@ -1,12 +1,11 @@
-package com.karim.data.mapper
+package com.karim.local.mapper
 
 import com.karim.data.models.PhotoAlbumData
-import com.karim.domain.models.PhotoAlbumEntity
+import com.karim.local.model.PhotoAlbumLocal
 
-class PhotoAlbumDomainDataMapper : Mapper<PhotoAlbumEntity, PhotoAlbumData> {
-
-    override fun from(e: PhotoAlbumData): PhotoAlbumEntity {
-        return PhotoAlbumEntity(
+class PhotoAlbumDataLocalMapper : Mapper<PhotoAlbumData, PhotoAlbumLocal> {
+    override fun from(e: PhotoAlbumLocal): PhotoAlbumData {
+        return PhotoAlbumData(
             id = e.id,
             albumId = e.albumId,
             title = e.title,
@@ -15,8 +14,8 @@ class PhotoAlbumDomainDataMapper : Mapper<PhotoAlbumEntity, PhotoAlbumData> {
         )
     }
 
-    override fun to(t: PhotoAlbumEntity): PhotoAlbumData {
-        return PhotoAlbumData(
+    override fun to(t: PhotoAlbumData): PhotoAlbumLocal {
+        return PhotoAlbumLocal(
             id = t.id,
             albumId = t.albumId,
             title = t.title,
@@ -24,4 +23,5 @@ class PhotoAlbumDomainDataMapper : Mapper<PhotoAlbumEntity, PhotoAlbumData> {
             thumbnailUrl = t.thumbnailUrl
         )
     }
+
 }

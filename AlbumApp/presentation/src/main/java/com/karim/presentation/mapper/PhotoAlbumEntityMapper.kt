@@ -3,7 +3,7 @@ package com.karim.presentation.mapper
 import com.karim.domain.models.PhotoAlbumEntity
 import com.karim.presentation.model.PhotoAlbum
 
-class PhotoAlbumEntityMapper constructor() : Mapper<PhotoAlbumEntity, PhotoAlbum> {
+class PhotoAlbumEntityMapper : Mapper<PhotoAlbumEntity, PhotoAlbum> {
 
     override fun from(e: PhotoAlbum): PhotoAlbumEntity {
         return PhotoAlbumEntity(

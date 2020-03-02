@@ -1,2 +1,2 @@
-include ':app', ':domain', ':remote', ':presentation', ':data'
+include ':app', ':domain', ':remote', ':presentation', ':data', ':local'
 rootProject.name='AlbumApp'
