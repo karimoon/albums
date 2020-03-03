@@ -24,7 +24,7 @@ class PhotoAlbumRepositoryImpl constructor(
                 localDataSource.savePhotos(photos)
                 photos.map { photoAlbumMapper.from(it) }
             }
-            //.onErrorResumeNext(Observable.empty())
+            .onErrorResumeNext(Observable.empty())
             .concatWith(localPhotos)
     }
 

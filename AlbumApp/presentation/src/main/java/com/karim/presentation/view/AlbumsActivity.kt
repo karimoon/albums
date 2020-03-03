@@ -1,8 +1,8 @@
-package com.karim.albumapp
+package com.karim.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.karim.albumapp.ui.albums.AlbumsFragment
+import com.karim.presentation.R
 
 class AlbumsActivity : AppCompatActivity() {
 

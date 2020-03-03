@@ -1,4 +1,4 @@
-package com.karim.albumapp.ui.albums
+package com.karim.presentation.view
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.karim.presentation.R
 import com.karim.presentation.model.Status
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -23,7 +24,7 @@ class AlbumsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(com.karim.albumapp.R.layout.albums_fragment, container, false)
+        return inflater.inflate(R.layout.albums_fragment, container, false)
 
     }
 
