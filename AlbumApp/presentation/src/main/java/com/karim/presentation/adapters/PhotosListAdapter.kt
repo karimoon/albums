@@ -13,7 +13,6 @@ import kotlin.collections.ArrayList
 
 
 class PhotosListAdapter(
-    val context: Context,
     val photosList : List<PhotoAlbum>,
     val itemListener: PhotoItemListener
     ) : RecyclerView.Adapter<PhotosListAdapter.ViewHolder>() {
@@ -31,21 +30,18 @@ class PhotosListAdapter(
 
     override fun getItemCount(): Int = photosList.size
 
-    fun setList(photos: List<PhotoAlbum>) {
-        (photosList as ArrayList<PhotoAlbum>).clear()
-        photosList.addAll(photos)
-        notifyDataSetChanged()
-    }
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val photo = photosList.get(position)
 
         with(holder) {
-            titleText.text = photo.title
-            urlText.text = photo.url
+            titleText.text = "Title: " + photo.title
+            urlText.text = "Url: " + photo.url
+            photoId.text = "Id: " + photo.id
+            albumId.text= "albumId: " + photo.albumId
 
+            //using Webview instead of Imageview because of the Okhttp error occured when using Glide.
+            photoImage.loadUrl(photo.thumbnailUrl)
 
             //doesn't work for this url
             /*val url1 = "https://via.placeholder.com/300.png"
@@ -65,8 +61,8 @@ class PhotosListAdapter(
                 }
             }*/
 
-            photoImage.loadUrl(photo.url)
 
+            //Unfortunatly Glide doesn't work for this kind of urls
             /*Glide.with(context)
                 .load(photo.url)
                 .placeholder(R.drawable.ic_launcher_background)
@@ -85,6 +81,8 @@ class PhotosListAdapter(
         RecyclerView.ViewHolder(itemView) {
         val titleText = itemView.title
         val photoImage = itemView.photoImage
+        val photoId = itemView.photoId
+        val albumId = itemView.albumId
         val urlText = itemView.url
     }
 
