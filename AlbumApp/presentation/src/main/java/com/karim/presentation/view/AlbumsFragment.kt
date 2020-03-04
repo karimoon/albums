@@ -35,7 +35,6 @@ class AlbumsFragment : Fragment() , PhotosListAdapter.PhotoItemListener {
         super.onActivityCreated(savedInstanceState)
 
         viewModel.photoAlbumListSource.observe(this, Observer {
-            Log.d("viewmodels_res",it.toString())
             when (it.status) {
                 Status.LOADING -> {
                     showLoader()
@@ -47,8 +46,7 @@ class AlbumsFragment : Fragment() , PhotosListAdapter.PhotoItemListener {
                     hideLoader()
                     it.data?.let {photos ->
 
-                        val photosListAdapter = PhotosListAdapter(
-                            requireContext(),photos,this
+                        val photosListAdapter = PhotosListAdapter(photos,this
                         )
                         recyclerview.adapter= photosListAdapter
 
