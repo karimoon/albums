@@ -6,7 +6,9 @@ import com.karim.local.database.PhotosDAO
 import com.karim.local.mapper.Mapper
 import com.karim.local.mapper.PhotoAlbumDataLocalMapper
 import com.karim.local.model.PhotoAlbumLocal
+import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 class LocalDataSourceImpl constructor(
     private val photosDAO: PhotosDAO,
@@ -23,16 +25,16 @@ class LocalDataSourceImpl constructor(
             }
     }
 
-    override fun savePhotos(photos : List<PhotoAlbumData>) {
-        photosDAO.addPhotos(
+    override fun savePhotos(photos : List<PhotoAlbumData>): Single<List<Long>> {
+        return photosDAO.addPhotos(
             photos.map {
                 photoAlbumDataLocalMapper.to(it)
             }
         )
     }
 
-    override fun clearPhotoData() {
-        photosDAO.clearCachedPhotos()
+    override fun clearPhotoData(): Completable {
+       return photosDAO.clearCachedPhotos()
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.karim.local.model.PhotoAlbumLocal
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 @Dao
 interface PhotosDAO {
@@ -15,8 +16,9 @@ interface PhotosDAO {
     fun getPhotos(): Observable<List<PhotoAlbumLocal>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addPhotos(photos: List<PhotoAlbumLocal>)
+    fun addPhotos(photos: List<PhotoAlbumLocal>): Single<List<Long>>
 
     @Query("DELETE FROM photos")
-    fun clearCachedPhotos()
+    fun clearCachedPhotos(): Completable
+
 }

@@ -20,8 +20,8 @@ class PhotoAlbumRepositoryImpl constructor(
 
         return remoteDataSource.getPhotoAlbumsData()
             .map { photos ->
-                localDataSource.clearPhotoData()
-                localDataSource.savePhotos(photos)
+                localDataSource.clearPhotoData().blockingGet()
+                localDataSource.savePhotos(photos).blockingGet()
                 photos.map { photoAlbumMapper.from(it) }
             }
             .onErrorResumeNext(Observable.empty())
