@@ -65,11 +65,13 @@ class PhotosListAdapter(
                 }
             }*/
 
-            Glide.with(context)
+            photoImage.loadUrl(photo.url)
+
+            /*Glide.with(context)
                 .load(photo.url)
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
-                .into(photoImage)
+                .into(photoImage)*/
         }
 
 
