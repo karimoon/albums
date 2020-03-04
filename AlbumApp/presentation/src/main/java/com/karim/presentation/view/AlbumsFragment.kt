@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.karim.presentation.R
+import com.karim.presentation.adapters.PhotosListAdapter
+import com.karim.presentation.model.PhotoAlbum
 import com.karim.presentation.model.Status
+import kotlinx.android.synthetic.main.albums_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class AlbumsFragment : Fragment() {
+class AlbumsFragment : Fragment() , PhotosListAdapter.PhotoItemListener {
 
     companion object {
         fun newInstance() = AlbumsFragment()
@@ -35,22 +38,19 @@ class AlbumsFragment : Fragment() {
             Log.d("viewmodels_res",it.toString())
             when (it.status) {
                 Status.LOADING -> {
-                    println("Photos Loading")
-                    Log.d("viewmodels","Photos Loading")
-                    //showLoader()
+                    showLoader()
                 }
                 Status.ERROR -> {
-                    Log.d("viewmodels","Photos ERROR:")
-                    println("Transactions ERROR: ${it.message}")
-
-                    //hideLoader()
+                    hideLoader()
                 }
                 Status.SUCCESS -> {
-                    //hideLoader()
-                    Log.d("viewmodels", "sucsess")
-                    println("Transactions data: ${it.data}")
-                    it.data?.let {transactions ->
-                        Log.d("viewmodels", transactions.toString())
+                    hideLoader()
+                    it.data?.let {photos ->
+
+                        val photosListAdapter = PhotosListAdapter(
+                            requireContext(),photos,this
+                        )
+                        recyclerview.adapter= photosListAdapter
 
                         }
                     }
@@ -58,6 +58,21 @@ class AlbumsFragment : Fragment() {
             }
         )
 
+    }
+
+    override fun onPhotoItemClick(photo: PhotoAlbum) {
+
+        Log.d("photo_clicked", photo.toString())
+    }
+
+    private fun showLoader() {
+        progressBarLoader.visibility = View.VISIBLE
+        recyclerview.alpha = 0.2f
+    }
+
+    private fun hideLoader() {
+        progressBarLoader.visibility = View.GONE
+        recyclerview.alpha = 1.0f
     }
 
 }
