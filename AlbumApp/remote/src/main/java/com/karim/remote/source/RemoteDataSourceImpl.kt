@@ -16,7 +16,7 @@ class RemoteDataSourceImpl constructor(
             Observable<List<PhotoAlbumData>> {
         return photoAlbumsService.getPhotoAlbumsData()
             .map { response ->
-                println("Remote get photos Invoked")
+                //println("Remote get photos Invoked")
                 response.map { photoAlbum: PhotoAlbumNetwork ->
                     photoAlbumMapper.from(photoAlbum)
                 }
