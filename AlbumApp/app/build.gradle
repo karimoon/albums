@@ -62,5 +62,8 @@ dependencies {
     implementation "androidx.room:room-rxjava2:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
+    //leak canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
+
 
 }

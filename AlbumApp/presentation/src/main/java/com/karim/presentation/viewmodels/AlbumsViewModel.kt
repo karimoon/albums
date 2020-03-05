@@ -34,7 +34,9 @@ class AlbumsViewModel constructor(
         }.map { Resource.success(it) }
         .startWith(Resource.loading())
         .onErrorResumeNext(Function {
-            Observable.just(Resource.error(it.localizedMessage))
+            it.localizedMessage?.let {
+                Observable.just(Resource.error(it))
+            }
         }).toFlowable(BackpressureStrategy.LATEST)
         .toLiveData()
 
