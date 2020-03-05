@@ -19,7 +19,6 @@ class LocalDataSourceImpl constructor(
         return photosDAO.getPhotos()
             .map {
                 photosLocal -> photosLocal.map {
-                //println("Local Invoked")
                 photoAlbumDataLocalMapper.from(it)
             }
             }

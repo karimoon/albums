@@ -1,15 +1,12 @@
 package com.karim.presentation.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.karim.presentation.R
 import com.karim.presentation.model.PhotoAlbum
 import kotlinx.android.synthetic.main.photo_list_item.view.*
-import kotlin.collections.ArrayList
 
 
 class PhotosListAdapter(

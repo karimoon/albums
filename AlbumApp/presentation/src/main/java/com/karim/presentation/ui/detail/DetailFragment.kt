@@ -43,11 +43,11 @@ class DetailFragment : Fragment() {
         val photo = viewModel.selectedPhoto
 
         photo?.let {
-            albumId.text = "AlbumId :"+ it.albumId
-            photoId.text = "Id :"+ it.id
-            title.text = "Title :"+ it.title
-            url.text = "Url :"+ it.url
-            thumbnailUrl.text = "thumbnailUrl :"+ it.thumbnailUrl
+            albumId.text = "AlbumId: "+ it.albumId
+            photoId.text = "Id: "+ it.id
+            title.text = "Title: "+ it.title
+            url.text = "Url: "+ it.url
+            thumbnailUrl.text = "thumbnailUrl: "+ it.thumbnailUrl
             photoImage.loadUrl(it.thumbnailUrl)
         }
     }

@@ -38,23 +38,11 @@ dependencies {
 
     implementation project(':data')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-
-    implementation "javax.inject:javax.inject:$javaxInjectVersion"
-
 
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
-
-    // AndroidX test
-    androidTestImplementation "androidx.test:core:$androidx_test_version"
-    androidTestImplementation "androidx.test:runner:$androidx_test_version"
-
-
 
     // -------- INSTRUMENTATION TESTS (use JUnit4)
     androidTestImplementation "junit:junit:$junitVersion"
