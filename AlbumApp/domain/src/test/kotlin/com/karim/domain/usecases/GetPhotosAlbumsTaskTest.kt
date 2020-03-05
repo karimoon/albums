@@ -31,7 +31,7 @@ class GetPhotosAlbumsTaskTest {
 
         getPhotosAlbumsTask = GetPhotosAlbumsTask(
             photoAlbumsRepository,
-            IoScheduler(),
+            Schedulers.trampoline(),
             Schedulers.trampoline()
         )
     }

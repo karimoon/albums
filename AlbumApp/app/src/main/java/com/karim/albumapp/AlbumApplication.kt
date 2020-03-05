@@ -29,6 +29,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -39,7 +40,8 @@ class AlbumApplication : Application() {
     private val domainModule = module {
 
         single {
-            GetPhotosAlbumsTask(get(),get(), get())
+            GetPhotosAlbumsTask(get(),get(named("isIoScheduler")),
+                get(named("isNotIoScheduler")))
         }
 
     }
@@ -133,11 +135,11 @@ class AlbumApplication : Application() {
 
     private val appModule = module {
 
-        single{
-            Schedulers.io() as IoScheduler
+        single(named("isIoScheduler"))  {
+            Schedulers.io()
         }
 
-        single{
+        single(named("isNotIoScheduler")) {
             AndroidSchedulers.mainThread()
         }
 

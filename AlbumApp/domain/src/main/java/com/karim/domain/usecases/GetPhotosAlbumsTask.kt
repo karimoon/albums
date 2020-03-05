@@ -9,7 +9,7 @@ import io.reactivex.internal.schedulers.IoScheduler
 
 class GetPhotosAlbumsTask constructor(
     private val photoAlbumsRepository: PhotoAlbumsRepository,
-    backgroundScheduler: IoScheduler,
+    backgroundScheduler: Scheduler,
     foregroundScheduler: Scheduler
 ) : ObservableUseCase<List<PhotoAlbumEntity>>(
     backgroundScheduler,
