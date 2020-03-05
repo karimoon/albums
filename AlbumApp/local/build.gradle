@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -23,9 +25,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
 
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -37,6 +42,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
 
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
+    implementation "javax.inject:javax.inject:$javaxInjectVersion"
+
 
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
@@ -53,15 +61,8 @@ dependencies {
 
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$archCoreVersion"
-
-
-    def coroutines_version = "1.2.1"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-
 
 
 }
