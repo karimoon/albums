@@ -115,6 +115,7 @@ class LocalDataSourceImplTest {
 
         val testObserver = localDataSourceImpl.clearPhotoData().test()
 
+        
         //Assert
         Mockito.verify(photosDAO).clearCachedPhotos()
 
