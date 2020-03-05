@@ -5,7 +5,7 @@
     android:id="@+id/albums"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.karim.presentation.view.AlbumsFragment">
+    tools:context="com.karim.presentation.ui.main.AlbumsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"

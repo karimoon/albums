@@ -6,7 +6,7 @@
     app:startDestination="@id/albumsFragment">
     <fragment
         android:id="@+id/albumsFragment"
-        android:name="com.karim.presentation.view.AlbumsFragment"
+        android:name="com.karim.presentation.ui.main.AlbumsFragment"
         android:label="albums_fragment"
         tools:layout="@layout/albums_fragment" />
 </navigation>

@@ -16,14 +16,15 @@ import com.karim.local.model.PhotoAlbumLocal
 import com.karim.local.source.LocalDataSourceImpl
 import com.karim.presentation.mapper.PhotoAlbumEntityMapper
 import com.karim.presentation.model.PhotoAlbum
+import com.karim.presentation.sharedUiRepos.SharedUIRepo
 import com.karim.presentation.viewmodels.AlbumsViewModel
+import com.karim.presentation.viewmodels.DetailViewModel
 import com.karim.remote.api.PhotoAlbumsRetrofitService
 import com.karim.remote.mapper.Mapper
 import com.karim.remote.mapper.PhotoAlbumDataNetworkMapper
 import com.karim.remote.model.PhotoAlbumNetwork
 import com.karim.remote.source.RemoteDataSourceImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.internal.schedulers.IoScheduler
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -131,6 +132,13 @@ class AlbumApplication : Application() {
         }
 
         viewModel { AlbumsViewModel(get() , get()) }
+
+        viewModel { DetailViewModel() }
+
+
+        single {
+            SharedUIRepo()
+        }
     }
 
     private val appModule = module {

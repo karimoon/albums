@@ -1,4 +1,4 @@
-package com.karim.presentation.view
+package com.karim.presentation.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,9 @@ class AlbumsActivity : AppCompatActivity() {
         setContentView(R.layout.albums_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, AlbumsFragment.newInstance())
+                .replace(R.id.container,
+                    AlbumsFragment.newInstance()
+                )
                 .commitNow()
         }
     }

@@ -25,7 +25,6 @@ class AlbumsViewModel constructor(
     val photoAlbumListSource: LiveData<Resource<List<PhotoAlbum>>>
         get() = photosMediator
 
-
     val photosAlbumResource = getPhotosAlbumsTask
         .buildUseCase()
         .map { photoAlbumEntities ->
