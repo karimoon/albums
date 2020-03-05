@@ -21,5 +21,3 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"

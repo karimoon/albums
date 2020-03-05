@@ -23,5 +23,3 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
