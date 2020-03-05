@@ -16,3 +16,4 @@ In terms of tools and libraries, I've used :
   * Rxjava, RxAndroid
   * RecyclerView
   * Junit 4 and Mockito 
+  * Leak canary
