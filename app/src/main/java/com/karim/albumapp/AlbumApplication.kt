@@ -75,7 +75,7 @@ class AlbumApplication : Application() {
             return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(MoshiConverterFactory.create())
-                .baseUrl(com.karim.remote.BuildConfig.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .build()
         }
 
