@@ -15,7 +15,7 @@ import com.karim.presentation.sharedUiRepos.SharedUIRepo
 import com.karim.presentation.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.albums_fragment.*
 import org.koin.android.ext.android.get
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class AlbumsFragment : Fragment() , PhotosListAdapter.PhotoItemListener {
@@ -24,7 +24,7 @@ class AlbumsFragment : Fragment() , PhotosListAdapter.PhotoItemListener {
         fun newInstance() = AlbumsFragment()
     }
 
-    private val viewModel: com.karim.presentation.viewmodels.AlbumsViewModel by sharedViewModel()
+    private val viewModel: com.karim.presentation.viewmodels.AlbumsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
