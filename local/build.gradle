@@ -47,6 +47,10 @@ dependencies {
     // -------- INSTRUMENTATION TESTS (use JUnit4)
     androidTestImplementation "junit:junit:$junitVersion"
 
+    // AndroidX test
+    androidTestImplementation "androidx.test:core:$androidx_test_version"
+    androidTestImplementation "androidx.test:runner:$androidx_test_version"
+
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"

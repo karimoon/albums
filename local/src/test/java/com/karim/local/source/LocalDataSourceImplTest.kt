@@ -93,7 +93,7 @@ class LocalDataSourceImplTest {
         Mockito.`when`(photosDAO.addPhotos(listPhotosLocals))
             .thenReturn(Single.just(listOf(1L,2L,3L)))
 
-        val testObserver = localDataSourceImpl.savePhotos(listPhotos).test()
+        val testObserver = localDataSourceImpl.savePhotosObservable(listPhotos).test()
 
         //Assert
         Mockito.verify(photosDAO).addPhotos(listPhotosLocals)
@@ -113,7 +113,7 @@ class LocalDataSourceImplTest {
         Mockito.`when`(photosDAO.clearCachedPhotos())
             .thenReturn(Completable.complete())
 
-        val testObserver = localDataSourceImpl.clearPhotoData().test()
+        val testObserver = localDataSourceImpl.clearPhotoDataObservable().test()
 
 
         //Assert

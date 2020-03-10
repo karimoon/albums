@@ -9,7 +9,11 @@ interface LocalDataSource {
 
     fun getPhotos(): Observable<List<PhotoAlbumData>>
 
-    fun savePhotos(photos : List<PhotoAlbumData>): Single<List<Long>>
+    fun savePhotosObservable(photos : List<PhotoAlbumData>): Single<List<Long>>
 
-    fun clearPhotoData(): Completable
+    fun clearPhotoDataObservable(): Completable
+
+    fun savePhotos(photos : List<PhotoAlbumData>)
+
+    fun clearPhotoData()
 }

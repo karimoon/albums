@@ -7,7 +7,7 @@ import com.karim.domain.repository.PhotoAlbumsRepository
 import io.reactivex.Observable
 
 class PhotoAlbumRepositoryImpl constructor(
-    private val photoAlbumMapper : Mapper<PhotoAlbumEntity, PhotoAlbumData>,
+    private val photoAlbumMapper: Mapper<PhotoAlbumEntity, PhotoAlbumData>,
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
 ) : PhotoAlbumsRepository {
@@ -20,13 +20,12 @@ class PhotoAlbumRepositoryImpl constructor(
 
         return remoteDataSource.getPhotoAlbumsData()
             .map { photos ->
-                localDataSource.clearPhotoData().blockingGet()
-                localDataSource.savePhotos(photos).blockingGet()
+                localDataSource.clearPhotoData()
+                localDataSource.savePhotos(photos)
                 photos.map { photoAlbumMapper.from(it) }
-            }
-            .onErrorResumeNext(Observable.empty())
+            }.onErrorResumeNext(Observable.empty())
             .concatWith(localPhotos)
-    }
 
+    }
 
 }

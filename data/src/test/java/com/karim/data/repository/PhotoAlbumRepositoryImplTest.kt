@@ -2,7 +2,6 @@ package com.karim.data.repository
 
 import com.karim.data.mapper.PhotoAlbumDomainDataMapper
 import com.karim.data.models.PhotoAlbumData
-import com.karim.domain.models.PhotoAlbumEntity
 import com.karim.domain.repository.PhotoAlbumsRepository
 import io.reactivex.Observable
 import org.junit.Before
